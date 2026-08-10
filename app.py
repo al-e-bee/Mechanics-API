@@ -1,9 +1,12 @@
-from flask import Flask
+from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 from decimal import Decimal
 from typing import List
+from marshmallow import ValidationError
+from sqlalchemy import select
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:*D3tr01t26!*@localhost/mechanic_api'
@@ -64,6 +67,7 @@ class Mechanic(Base):
     
     
 #============SCHEMAS============
+# Schemas aid with data validation to prevent server disruption
 
 class CustomerSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
@@ -71,6 +75,78 @@ class CustomerSchema(ma.SQLAlchemyAutoSchema):
         
 customer_schema = CustomerSchema() # Serializes a single Customer object
 customers_schema = CustomerSchema(many=True) # Serializes a list of Customer objects
+
+
+#============ROUTES===============
+
+# CREATE CUSTOMER (POST / customers Endpoint)
+@app.route('/customers', methods=['POST'])
+def create_customer():
+    try:
+        customer_data = customer_schema.load(request.json)
+    except ValidationError as e:
+        return jsonify(e.messages), 400
+
+    query = select(Customer).where(Customer.email == customer_data['email'])
+    existing_customer = db.session.execute(query).scalars().all()
+    if existing_customer:
+        return jsonify({'error': 'Email already associated with an account'}), 400
+    
+    new_customer = Customer(**customer_data)
+    db.session.add(new_customer)
+    db.session.commit()
+    return customer_schema.jsonify(new_customer), 201
+
+# RETRIEVE ALL CUSTOMERS (GET / customers Endpoint)
+@app.route('/customers', methods=['GET'])
+def get_customers():
+    query = select(Customer)
+    customers = db.session.execute(query).scalars().all()
+    
+    return customers_schema.jsonify(customers)
+
+# RETRIEVE SPECIFIC CUSTOMER (GET / customers/<id> Endpoint)
+@app.route('/customers/<int:customer_id>', methods=['GET'])
+def get_customer(customer_id):
+    customer = db.session.get(Customer, customer_id)
+    
+    if customer:
+        return customer_schema.jsonify(customer)
+    return jsonify({'error': "Customer not found"}), 400
+
+# UPDATE SPECIFIC CUSTOMER (PUT / customers/<id> Endpoint)    
+@app.route('/customers/<int:customer_id>', methods=['PUT'])
+def update_customer(customer_id):
+    customer = db.session.get(Customer, customer_id)
+    
+    if not customer:
+        return jsonify({'error': "Customer not found"}), 400
+    
+    try:
+        customer_data = customer_schema.load(request.json)
+    except ValidationError as e:
+        return jsonify(e.messages), 400
+    
+    for key, value in customer_data.items():
+        setattr(customer, key, value)
+    
+    db.session.commit()
+    return customer_schema.jsonify(customer), 200
+
+# DELETE SPECIFIC CUSTOMER (DELETE / customers/<id> Endpoint)
+@app.route('/customers/<int:customer_id>', methods=['DELETE'])
+def delete_customer(customer_id):
+    customer = db.session.get(Customer, customer_id)
+    
+    if not customer:
+        return jsonify({'error': 'Customer not found.'}), 400
+    
+    db.session.delete(customer)
+    db.session.commit()
+    return jsonify({'message': f'Customer id: {customer_id}, successfully deleted'}), 200
+
+
+
     
 with app.app_context():
     db.create_all()
