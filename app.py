@@ -26,6 +26,8 @@ service_mechanics = db.Table(
     db.Column('mechanic_id', db.ForeignKey('mechanics.id'))
 )
 
+#=============CLASS MODELS========================
+
 class Customer(Base):
     __tablename__='customers'
     
@@ -59,6 +61,16 @@ class Mechanic(Base):
 
     services: Mapped[List['Service_Ticket']] = relationship(secondary=service_mechanics, back_populates='mechanics')
     
+    
+    
+#============SCHEMAS============
+
+class CustomerSchema(ma.SQLAlchemyAutoSchema):
+    class Meta:
+        model = Customer
+        
+customer_schema = CustomerSchema() # Serializes a single Customer object
+customers_schema = CustomerSchema(many=True) # Serializes a list of Customer objects
     
 with app.app_context():
     db.create_all()
