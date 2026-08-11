@@ -28,17 +28,9 @@
             "url": {
               "raw": "http://127.0.0.1:5000/customers/2",
               "protocol": "http",
-              "host": [
-                "127",
-                "0",
-                "0",
-                "1"
-              ],
+              "host": ["127", "0", "0", "1"],
               "port": "5000",
-              "path": [
-                "customers",
-                "2"
-              ]
+              "path": ["customers", "2"]
             }
           },
           "response": []
@@ -63,17 +55,9 @@
             "url": {
               "raw": "http://127.0.0.1:5000/customers/1",
               "protocol": "http",
-              "host": [
-                "127",
-                "0",
-                "0",
-                "1"
-              ],
+              "host": ["127", "0", "0", "1"],
               "port": "5000",
-              "path": [
-                "customers",
-                "1"
-              ]
+              "path": ["customers", "1"]
             }
           },
           "response": []
@@ -101,16 +85,9 @@
             "url": {
               "raw": "http://127.0.0.1:5000/customers",
               "protocol": "http",
-              "host": [
-                "127",
-                "0",
-                "0",
-                "1"
-              ],
+              "host": ["127", "0", "0", "1"],
               "port": "5000",
-              "path": [
-                "customers"
-              ]
+              "path": ["customers"]
             }
           },
           "response": [
@@ -131,16 +108,9 @@
                 "url": {
                   "raw": "http://127.0.0.1:5000/customers",
                   "protocol": "http",
-                  "host": [
-                    "127",
-                    "0",
-                    "0",
-                    "1"
-                  ],
+                  "host": ["127", "0", "0", "1"],
                   "port": "5000",
-                  "path": [
-                    "customers"
-                  ]
+                  "path": ["customers"]
                 }
               },
               "status": "OK",
@@ -188,17 +158,9 @@
             "url": {
               "raw": "http://127.0.0.1:5000/customers/1",
               "protocol": "http",
-              "host": [
-                "127",
-                "0",
-                "0",
-                "1"
-              ],
+              "host": ["127", "0", "0", "1"],
               "port": "5000",
-              "path": [
-                "customers",
-                "1"
-              ]
+              "path": ["customers", "1"]
             }
           },
           "response": [
@@ -214,17 +176,9 @@
                 "url": {
                   "raw": "http://127.0.0.1:5000/customers/1",
                   "protocol": "http",
-                  "host": [
-                    "127",
-                    "0",
-                    "0",
-                    "1"
-                  ],
+                  "host": ["127", "0", "0", "1"],
                   "port": "5000",
-                  "path": [
-                    "customers",
-                    "1"
-                  ]
+                  "path": ["customers", "1"]
                 }
               },
               "status": "OK",
@@ -277,16 +231,9 @@
             "url": {
               "raw": "http://127.0.0.1:5000/customers",
               "protocol": "http",
-              "host": [
-                "127",
-                "0",
-                "0",
-                "1"
-              ],
+              "host": ["127", "0", "0", "1"],
               "port": "5000",
-              "path": [
-                "customers"
-              ]
+              "path": ["customers"]
             }
           },
           "response": [
@@ -307,16 +254,9 @@
                 "url": {
                   "raw": "http://127.0.0.1:5000/customers",
                   "protocol": "http",
-                  "host": [
-                    "127",
-                    "0",
-                    "0",
-                    "1"
-                  ],
+                  "host": ["127", "0", "0", "1"],
                   "port": "5000",
-                  "path": [
-                    "customers"
-                  ]
+                  "path": ["customers"]
                 }
               },
               "status": "CREATED",
@@ -364,7 +304,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"name\": \"John Doe\",\r\n    \"email\": \"john_d@example.com\",\r\n    \"phone\": \"987-654-3210\",\r\n    \"salary\": 80000\r\n}",
+              "raw": "{\r\n    \"name\": \"Johnny Doe\",\r\n    \"email\": \"johnny_doe@example.com\",\r\n    \"phone\": \"987-654-3210\",\r\n    \"salary\": 80000\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -374,16 +314,9 @@
             "url": {
               "raw": "http://127.0.0.1:5000/mechanics",
               "protocol": "http",
-              "host": [
-                "127",
-                "0",
-                "0",
-                "1"
-              ],
+              "host": ["127", "0", "0", "1"],
               "port": "5000",
-              "path": [
-                "mechanics"
-              ]
+              "path": ["mechanics"]
             }
           },
           "response": [
@@ -404,16 +337,9 @@
                 "url": {
                   "raw": "http://127.0.0.1:5000/mechanics",
                   "protocol": "http",
-                  "host": [
-                    "127",
-                    "0",
-                    "0",
-                    "1"
-                  ],
+                  "host": ["127", "0", "0", "1"],
                   "port": "5000",
-                  "path": [
-                    "mechanics"
-                  ]
+                  "path": ["mechanics"]
                 }
               },
               "status": "CREATED",
@@ -443,6 +369,56 @@
               ],
               "cookie": [],
               "body": "{\n    \"email\": \"john_d@example.com\",\n    \"id\": 1,\n    \"name\": \"John Doe\",\n    \"phone\": \"987-654-3210\",\n    \"salary\": \"80000.00\"\n}"
+            },
+            {
+              "name": "Create A New Mechanic",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Johnny Doe\",\r\n    \"email\": \"johnny_doe@example.com\",\r\n    \"phone\": \"987-654-3210\",\r\n    \"salary\": 80000\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/mechanics",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["mechanics"]
+                }
+              },
+              "status": "CREATED",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 11 Aug 2026 18:35:45 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "126"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"email\": \"johnny_doe@example.com\",\n    \"id\": 2,\n    \"name\": \"Johnny Doe\",\n    \"phone\": \"987-654-3210\",\n    \"salary\": \"80000.00\"\n}"
             }
           ]
         },
@@ -464,16 +440,9 @@
             "url": {
               "raw": "http://127.0.0.1:5000/mechanics",
               "protocol": "http",
-              "host": [
-                "127",
-                "0",
-                "0",
-                "1"
-              ],
+              "host": ["127", "0", "0", "1"],
               "port": "5000",
-              "path": [
-                "mechanics"
-              ]
+              "path": ["mechanics"]
             }
           },
           "response": [
@@ -489,16 +458,9 @@
                 "url": {
                   "raw": "http://127.0.0.1:5000/mechanics",
                   "protocol": "http",
-                  "host": [
-                    "127",
-                    "0",
-                    "0",
-                    "1"
-                  ],
+                  "host": ["127", "0", "0", "1"],
                   "port": "5000",
-                  "path": [
-                    "mechanics"
-                  ]
+                  "path": ["mechanics"]
                 }
               },
               "status": "OK",
@@ -549,17 +511,9 @@
             "url": {
               "raw": "http://127.0.0.1:5000/mechanics/1",
               "protocol": "http",
-              "host": [
-                "127",
-                "0",
-                "0",
-                "1"
-              ],
+              "host": ["127", "0", "0", "1"],
               "port": "5000",
-              "path": [
-                "mechanics",
-                "1"
-              ]
+              "path": ["mechanics", "1"]
             }
           },
           "response": [
@@ -575,17 +529,9 @@
                 "url": {
                   "raw": "http://127.0.0.1:5000/mechanics/1",
                   "protocol": "http",
-                  "host": [
-                    "127",
-                    "0",
-                    "0",
-                    "1"
-                  ],
+                  "host": ["127", "0", "0", "1"],
                   "port": "5000",
-                  "path": [
-                    "mechanics",
-                    "1"
-                  ]
+                  "path": ["mechanics", "1"]
                 }
               },
               "status": "OK",
@@ -638,17 +584,9 @@
             "url": {
               "raw": "http://127.0.0.1:5000/mechanics/1",
               "protocol": "http",
-              "host": [
-                "127",
-                "0",
-                "0",
-                "1"
-              ],
+              "host": ["127", "0", "0", "1"],
               "port": "5000",
-              "path": [
-                "mechanics",
-                "1"
-              ]
+              "path": ["mechanics", "1"]
             }
           },
           "response": [
@@ -669,17 +607,9 @@
                 "url": {
                   "raw": "http://127.0.0.1:5000/mechanics/1",
                   "protocol": "http",
-                  "host": [
-                    "127",
-                    "0",
-                    "0",
-                    "1"
-                  ],
+                  "host": ["127", "0", "0", "1"],
                   "port": "5000",
-                  "path": [
-                    "mechanics",
-                    "1"
-                  ]
+                  "path": ["mechanics", "1"]
                 }
               },
               "status": "OK",
@@ -727,17 +657,9 @@
             "url": {
               "raw": "http://127.0.0.1:5000/mechanics/1",
               "protocol": "http",
-              "host": [
-                "127",
-                "0",
-                "0",
-                "1"
-              ],
+              "host": ["127", "0", "0", "1"],
               "port": "5000",
-              "path": [
-                "mechanics",
-                "1"
-              ]
+              "path": ["mechanics", "1"]
             }
           },
           "response": [
@@ -753,17 +675,9 @@
                 "url": {
                   "raw": "http://127.0.0.1:5000/mechanics/1",
                   "protocol": "http",
-                  "host": [
-                    "127",
-                    "0",
-                    "0",
-                    "1"
-                  ],
+                  "host": ["127", "0", "0", "1"],
                   "port": "5000",
-                  "path": [
-                    "mechanics",
-                    "1"
-                  ]
+                  "path": ["mechanics", "1"]
                 }
               },
               "status": "OK",
@@ -802,7 +716,7 @@
       "name": "Service Tickets",
       "item": [
         {
-          "name": "Create New Service Ticket",
+          "name": "Create A Service Ticket",
           "request": {
             "auth": {
               "type": "noauth"
@@ -821,21 +735,14 @@
             "url": {
               "raw": "http://127.0.0.1:5000/service_tickets",
               "protocol": "http",
-              "host": [
-                "127",
-                "0",
-                "0",
-                "1"
-              ],
+              "host": ["127", "0", "0", "1"],
               "port": "5000",
-              "path": [
-                "service_tickets"
-              ]
+              "path": ["service_tickets"]
             }
           },
           "response": [
             {
-              "name": "Create New Service Ticket",
+              "name": "Create A Service Ticket",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -851,16 +758,9 @@
                 "url": {
                   "raw": "http://127.0.0.1:5000/service_tickets",
                   "protocol": "http",
-                  "host": [
-                    "127",
-                    "0",
-                    "0",
-                    "1"
-                  ],
+                  "host": ["127", "0", "0", "1"],
                   "port": "5000",
-                  "path": [
-                    "service_tickets"
-                  ]
+                  "path": ["service_tickets"]
                 }
               },
               "status": "CREATED",
@@ -873,7 +773,7 @@
                 },
                 {
                   "key": "Date",
-                  "value": "Tue, 11 Aug 2026 16:51:30 GMT"
+                  "value": "Tue, 11 Aug 2026 18:33:29 GMT"
                 },
                 {
                   "key": "Content-Type",
@@ -889,7 +789,143 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n    \"VIN\": \"123ABC\",\n    \"customer_id\": 2,\n    \"id\": 1,\n    \"service_date\": \"01/01/2026\",\n    \"service_desc\": \"Put new brakes on vehicle\"\n}"
+              "body": "{\n    \"VIN\": \"123ABC\",\n    \"customer_id\": 2,\n    \"id\": 2,\n    \"service_date\": \"01/01/2026\",\n    \"service_desc\": \"Put new brakes on vehicle\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Assign Mechanic to Specific Service Ticket",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"VIN\": \"123ABC\",\r\n    \"service_date\": \"01/01/2026\",\r\n    \"service_desc\": \"Put new brakes on vehicle\",\r\n    \"customer_id\": 2\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/service_tickets/2/assign-mechanic/2",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["service_tickets", "2", "assign-mechanic", "2"]
+            }
+          },
+          "response": [
+            {
+              "name": "Assign Mechanic to Specific Service Ticket",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"VIN\": \"123ABC\",\r\n    \"service_date\": \"01/01/2026\",\r\n    \"service_desc\": \"Put new brakes on vehicle\",\r\n    \"customer_id\": 2\r\n}"
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/service_tickets/2/assign-mechanic/2",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["service_tickets", "2", "assign-mechanic", "2"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 11 Aug 2026 18:38:16 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "78"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Mechanic id 2 successfully assigned to Service Ticket id 2\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Remove Mechanic from Specific Service Ticket",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"VIN\": \"123ABC\",\r\n    \"service_date\": \"01/01/2026\",\r\n    \"service_desc\": \"Put new brakes on vehicle\",\r\n    \"customer_id\": 2\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/service_tickets/2/remove-mechanic/2",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["service_tickets", "2", "remove-mechanic", "2"]
+            }
+          },
+          "response": [
+            {
+              "name": "Remove Mechanic from Specific Service Ticket",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"VIN\": \"123ABC\",\r\n    \"service_date\": \"01/01/2026\",\r\n    \"service_desc\": \"Put new brakes on vehicle\",\r\n    \"customer_id\": 2\r\n}"
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/service_tickets/2/remove-mechanic/2",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["service_tickets", "2", "remove-mechanic", "2"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 11 Aug 2026 18:39:43 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "78"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Mechanic id: 2, successfully removed from Service Ticket 2\"\n}"
             }
           ]
         },
@@ -911,16 +947,9 @@
             "url": {
               "raw": "http://127.0.0.1:5000/service_tickets",
               "protocol": "http",
-              "host": [
-                "127",
-                "0",
-                "0",
-                "1"
-              ],
+              "host": ["127", "0", "0", "1"],
               "port": "5000",
-              "path": [
-                "service_tickets"
-              ]
+              "path": ["service_tickets"]
             }
           },
           "response": [
@@ -936,16 +965,9 @@
                 "url": {
                   "raw": "http://127.0.0.1:5000/service_tickets",
                   "protocol": "http",
-                  "host": [
-                    "127",
-                    "0",
-                    "0",
-                    "1"
-                  ],
+                  "host": ["127", "0", "0", "1"],
                   "port": "5000",
-                  "path": [
-                    "service_tickets"
-                  ]
+                  "path": ["service_tickets"]
                 }
               },
               "status": "OK",
@@ -958,7 +980,7 @@
                 },
                 {
                   "key": "Date",
-                  "value": "Tue, 11 Aug 2026 16:55:25 GMT"
+                  "value": "Tue, 11 Aug 2026 18:40:32 GMT"
                 },
                 {
                   "key": "Content-Type",
@@ -974,272 +996,7 @@
                 }
               ],
               "cookie": [],
-              "body": "[\n    {\n        \"VIN\": \"123ABC\",\n        \"customer_id\": 2,\n        \"id\": 1,\n        \"service_date\": \"01/01/2026\",\n        \"service_desc\": \"Put new brakes on vehicle\"\n    }\n]"
-            }
-          ]
-        },
-        {
-          "name": "Get Specific Service Ticket by ID",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "GET",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"VIN\": \"123ABC\",\r\n    \"service_date\": \"01/01/2026\",\r\n    \"service_desc\": \"Put new brakes on vehicle\",\r\n    \"customer_id\": 2\r\n}"
-            },
-            "url": {
-              "raw": "http://127.0.0.1:5000/service_tickets/1",
-              "protocol": "http",
-              "host": [
-                "127",
-                "0",
-                "0",
-                "1"
-              ],
-              "port": "5000",
-              "path": [
-                "service_tickets",
-                "1"
-              ]
-            }
-          },
-          "response": [
-            {
-              "name": "Get Specific Service Ticket by ID",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n    \"VIN\": \"123ABC\",\r\n    \"service_date\": \"01/01/2026\",\r\n    \"service_desc\": \"Put new brakes on vehicle\",\r\n    \"customer_id\": 2\r\n}"
-                },
-                "url": {
-                  "raw": "http://127.0.0.1:5000/service_tickets/1",
-                  "protocol": "http",
-                  "host": [
-                    "127",
-                    "0",
-                    "0",
-                    "1"
-                  ],
-                  "port": "5000",
-                  "path": [
-                    "service_tickets",
-                    "1"
-                  ]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": null,
-              "header": [
-                {
-                  "key": "Server",
-                  "value": "Werkzeug/3.1.8 Python/3.14.4"
-                },
-                {
-                  "key": "Date",
-                  "value": "Tue, 11 Aug 2026 16:59:29 GMT"
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                },
-                {
-                  "key": "Content-Length",
-                  "value": "132"
-                },
-                {
-                  "key": "Connection",
-                  "value": "close"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n    \"VIN\": \"123ABC\",\n    \"customer_id\": 2,\n    \"id\": 1,\n    \"service_date\": \"01/01/2026\",\n    \"service_desc\": \"Put new brakes on vehicle\"\n}"
-            }
-          ]
-        },
-        {
-          "name": "Update Specific Service Ticket by ID",
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "PUT",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"VIN\": \"123ABC\",\r\n    \"service_date\": \"01/01/2026\",\r\n    \"service_desc\": \"Put new brakes on vehicle, changed oil\",\r\n    \"customer_id\": 2\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://127.0.0.1:5000/service_tickets/1",
-              "protocol": "http",
-              "host": [
-                "127",
-                "0",
-                "0",
-                "1"
-              ],
-              "port": "5000",
-              "path": [
-                "service_tickets",
-                "1"
-              ]
-            }
-          },
-          "response": [
-            {
-              "name": "Update Specific Service Ticket by ID",
-              "originalRequest": {
-                "method": "PUT",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n    \"VIN\": \"123ABC\",\r\n    \"service_date\": \"01/01/2026\",\r\n    \"service_desc\": \"Put new brakes on vehicle, changed oil\",\r\n    \"customer_id\": 2\r\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": {
-                  "raw": "http://127.0.0.1:5000/service_tickets/1",
-                  "protocol": "http",
-                  "host": [
-                    "127",
-                    "0",
-                    "0",
-                    "1"
-                  ],
-                  "port": "5000",
-                  "path": [
-                    "service_tickets",
-                    "1"
-                  ]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": null,
-              "header": [
-                {
-                  "key": "Server",
-                  "value": "Werkzeug/3.1.8 Python/3.14.4"
-                },
-                {
-                  "key": "Date",
-                  "value": "Tue, 11 Aug 2026 17:05:50 GMT"
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                },
-                {
-                  "key": "Content-Length",
-                  "value": "145"
-                },
-                {
-                  "key": "Connection",
-                  "value": "close"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n    \"VIN\": \"123ABC\",\n    \"customer_id\": 2,\n    \"id\": 1,\n    \"service_date\": \"01/01/2026\",\n    \"service_desc\": \"Put new brakes on vehicle, changed oil\"\n}"
-            }
-          ]
-        },
-        {
-          "name": "Delete Specific Service Ticket by ID",
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "DELETE",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"VIN\": \"123ABC\",\r\n    \"service_date\": \"01/01/2026\",\r\n    \"service_desc\": \"Put new brakes on vehicle, changed oil\",\r\n    \"customer_id\": 2\r\n}"
-            },
-            "url": {
-              "raw": "http://127.0.0.1:5000/service_tickets/1",
-              "protocol": "http",
-              "host": [
-                "127",
-                "0",
-                "0",
-                "1"
-              ],
-              "port": "5000",
-              "path": [
-                "service_tickets",
-                "1"
-              ]
-            }
-          },
-          "response": [
-            {
-              "name": "Delete Specific Service Ticket by ID",
-              "originalRequest": {
-                "method": "DELETE",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n    \"VIN\": \"123ABC\",\r\n    \"service_date\": \"01/01/2026\",\r\n    \"service_desc\": \"Put new brakes on vehicle, changed oil\",\r\n    \"customer_id\": 2\r\n}"
-                },
-                "url": {
-                  "raw": "http://127.0.0.1:5000/service_tickets/1",
-                  "protocol": "http",
-                  "host": [
-                    "127",
-                    "0",
-                    "0",
-                    "1"
-                  ],
-                  "port": "5000",
-                  "path": [
-                    "service_tickets",
-                    "1"
-                  ]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": null,
-              "header": [
-                {
-                  "key": "Server",
-                  "value": "Werkzeug/3.1.8 Python/3.14.4"
-                },
-                {
-                  "key": "Date",
-                  "value": "Tue, 11 Aug 2026 17:10:13 GMT"
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                },
-                {
-                  "key": "Content-Length",
-                  "value": "62"
-                },
-                {
-                  "key": "Connection",
-                  "value": "close"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n    \"message\": \"Service Ticket id: 1, successfully deleted\"\n}"
+              "body": "[\n    {\n        \"VIN\": \"123ABC\",\n        \"customer_id\": 2,\n        \"id\": 2,\n        \"service_date\": \"01/01/2026\",\n        \"service_desc\": \"Put new brakes on vehicle\"\n    }\n]"
             }
           ]
         }
