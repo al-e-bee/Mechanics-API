@@ -1,7 +1,7 @@
 from app.extensions import ma
 from app.models import Customer
 
-#============SCHEMAS============
+#==========CUSTOMER SCHEMA==========
 # Schemas aid with data validation to prevent server disruption
 
 class CustomerSchema(ma.SQLAlchemyAutoSchema):
