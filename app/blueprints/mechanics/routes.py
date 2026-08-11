@@ -4,6 +4,7 @@ from marshmallow import ValidationError
 from sqlalchemy import select
 from app.models import Mechanic, db
 from . import mechanics_bp
+from app.helpers import get_or_404
 
 #=======MECHANIC ROUTES========
 
@@ -17,7 +18,7 @@ def create_mechanic():
         return jsonify(e.messages), 400
     
     query = select(Mechanic).where(Mechanic.email == mechanic_data['email'])
-    existing_mechanic = db.session.execute(query).scalars().all()
+    existing_mechanic = db.session.scalar(query)
     if existing_mechanic:
         return jsonify({'error': 'Email already associated with an account'}), 400
     
@@ -39,23 +40,22 @@ def get_mechanics():
 # RETRIEVE A SINGLE MECHANIC (GET /mechanics/<id> Endpoint)
 @mechanics_bp.route('/<int:mechanic_id>', methods=['GET'])
 def get_mechanic(mechanic_id):
-    mechanic = db.session.get(Mechanic, mechanic_id)
+    mechanic, error = get_or_404(Mechanic, mechanic_id)
+    if error:
+        return error
     
-    if mechanic:
-        return mechanic_schema.jsonify(mechanic)
-    return jsonify({'error': 'Mechanic not found'}), 404
-
+    return mechanic_schema.jsonify(mechanic), 200
+    
 
 # UPDATE SPECIFIC MECHANIC (PUT /mechanics/<id> Endpoint)
 @mechanics_bp.route('/<int:mechanic_id>', methods=['PUT'])
 def update_mechanic(mechanic_id):
-    mechanic = db.session.get(Mechanic, mechanic_id)
-    
-    if not mechanic:
-        return jsonify({'error': 'Mechanic not found'}), 404
+    mechanic, error = get_or_404(Mechanic, mechanic_id)
+    if error:
+        return error
     
     try:
-        mechanic_data = mechanic_schema.load(request.json)
+        mechanic_data = mechanic_schema.load(request.json, partial=True)
     except ValidationError as e:
         return jsonify(e.messages), 400
     
@@ -68,10 +68,9 @@ def update_mechanic(mechanic_id):
 # DELETE SPECIFIC MECHANIC (DELETE /mechanics/<id> Endpoint)
 @mechanics_bp.route('/<int:mechanic_id>', methods=['DELETE'])
 def delete_mechanic(mechanic_id):
-    mechanic = db.session.get(Mechanic, mechanic_id)
-    
-    if not mechanic:
-        return jsonify({'error': 'Mechanic not found'}), 404
+    mechanic, error = get_or_404(Mechanic, mechanic_id)
+    if error:
+        return error
     
     db.session.delete(mechanic)
     db.session.commit()

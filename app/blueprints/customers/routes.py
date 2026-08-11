@@ -4,11 +4,14 @@ from marshmallow import ValidationError
 from sqlalchemy import select
 from app.models import Customer, db
 from . import customers_bp
+from app.extensions import limiter, cache
+from app.helpers import get_or_404
 
 #============CUSTOMER ROUTES===============
 
 # CREATE CUSTOMER (POST / customers Endpoint)
 @customers_bp.route('/', methods=['POST'])
+@limiter.limit('5 per day') # Prevents bots or others from spamming the API and crashing it by creating a daily limit
 def create_customer():
     try:
         customer_data = customer_schema.load(request.json)
@@ -16,7 +19,7 @@ def create_customer():
         return jsonify(e.messages), 400
 
     query = select(Customer).where(Customer.email == customer_data['email'])
-    existing_customer = db.session.execute(query).scalars().all()
+    existing_customer = db.session.scalar(query)
     if existing_customer:
         return jsonify({'error': 'Email already associated with an account'}), 400
     
@@ -27,6 +30,7 @@ def create_customer():
 
 # RETRIEVE ALL CUSTOMERS (GET / customers Endpoint)
 @customers_bp.route('/', methods=['GET'])
+@cache.cached(timeout=60) # Caching this endpoint is important because as the database grows with more customers added, it will become more expensive to gather that data frequently. Caching it allows the return of data to remain fast without exhausting the entire database frequently to retrieve all customers. 
 def get_customers():
     query = select(Customer)
     customers = db.session.execute(query).scalars().all()
@@ -36,22 +40,21 @@ def get_customers():
 # RETRIEVE SPECIFIC CUSTOMER (GET / customers/<id> Endpoint)
 @customers_bp.route('/<int:customer_id>', methods=['GET'])
 def get_customer(customer_id):
-    customer = db.session.get(Customer, customer_id)
+    customer, error = get_or_404(Customer, customer_id)
+    if error:
+        return error
     
-    if customer:
-        return customer_schema.jsonify(customer)
-    return jsonify({'error': "Customer not found"}), 400
+    return customer_schema.jsonify(customer), 200
 
 # UPDATE SPECIFIC CUSTOMER (PUT / customers/<id> Endpoint)    
 @customers_bp.route('/<int:customer_id>', methods=['PUT'])
+@limiter.limit('5 per day') # Limiting updates for a single customer to 5 per day prevents too many visits from a single user and overwhelming the API preventing it from crashing
 def update_customer(customer_id):
-    customer = db.session.get(Customer, customer_id)
-    
-    if not customer:
-        return jsonify({'error': "Customer not found"}), 400
-    
+    customer, error = get_or_404(Customer, customer_id)
+    if error:
+        return error
     try:
-        customer_data = customer_schema.load(request.json)
+        customer_data = customer_schema.load(request.json, partial=True)
     except ValidationError as e:
         return jsonify(e.messages), 400
     
@@ -63,11 +66,11 @@ def update_customer(customer_id):
 
 # DELETE SPECIFIC CUSTOMER (DELETE / customers/<id> Endpoint)
 @customers_bp.route('/<int:customer_id>', methods=['DELETE'])
+@limiter.limit('5 per day')
 def delete_customer(customer_id):
-    customer = db.session.get(Customer, customer_id)
-    
-    if not customer:
-        return jsonify({'error': 'Customer not found.'}), 400
+    customer, error = get_or_404(Customer, customer_id)
+    if error:
+        return error
     
     db.session.delete(customer)
     db.session.commit()
