@@ -25,6 +25,7 @@ class Customer(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(db.String(255), nullable=False)
     email: Mapped[str] = mapped_column(db.String(360), nullable=False, unique=True)
+    password: Mapped[str] = mapped_column(db.String(200), nullable=False)
     phone: Mapped[str] = mapped_column(db.String(50), nullable=False)
     
     tickets: Mapped[List['Service_Ticket']] = relationship(back_populates='customer')
@@ -47,6 +48,7 @@ class Mechanic(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(db.String(255), nullable=False)
     email: Mapped[str] = mapped_column(db.String(360), nullable=False, unique=True)
+    password: Mapped[str] = mapped_column(db.String(200), nullable=False)
     phone: Mapped[str] = mapped_column(db.String(50), nullable=False)
     salary: Mapped[Decimal] = mapped_column(db.Numeric(10, 2), nullable=False)
 

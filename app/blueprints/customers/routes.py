@@ -1,4 +1,4 @@
-from .schemas import customer_schema, customers_schema
+from .schemas import customer_schema, customers_schema, login_schema
 from flask import request, jsonify
 from marshmallow import ValidationError
 from sqlalchemy import select
@@ -6,7 +6,12 @@ from app.models import Customer, db
 from . import customers_bp
 from app.extensions import limiter, cache
 from app.helpers import get_or_404
+from app.utils.util import authenticate_user, token_required
 
+@customers_bp.route('/login', methods=['POST'])
+def login():
+    return authenticate_user(Customer, login_schema, role='customer')
+    
 #============CUSTOMER ROUTES===============
 
 # CREATE CUSTOMER (POST / customers Endpoint)
@@ -49,7 +54,11 @@ def get_customer(customer_id):
 # UPDATE SPECIFIC CUSTOMER (PUT / customers/<id> Endpoint)    
 @customers_bp.route('/<int:customer_id>', methods=['PUT'])
 @limiter.limit('5 per day') # Limiting updates for a single customer to 5 per day prevents too many visits from a single user and overwhelming the API preventing it from crashing
-def update_customer(customer_id):
+@token_required
+def update_customer(customer_id, user_id, role):
+    # Enforce self-edits for customers
+    if role == 'customer' and user_id != customer_id:
+        return jsonify({'message': 'Unauthorized to modify another account.'}), 403
     customer, error = get_or_404(Customer, customer_id)
     if error:
         return error
@@ -67,7 +76,11 @@ def update_customer(customer_id):
 # DELETE SPECIFIC CUSTOMER (DELETE / customers/<id> Endpoint)
 @customers_bp.route('/<int:customer_id>', methods=['DELETE'])
 @limiter.limit('5 per day')
-def delete_customer(customer_id):
+@token_required
+def delete_customer(customer_id, user_id, role):
+    # Enforce self-edits for customers
+    if role == 'customer' and user_id != customer_id:
+        return jsonify({'message': 'Unauthorized to delete another account.'}), 403
     customer, error = get_or_404(Customer, customer_id)
     if error:
         return error

@@ -1,11 +1,16 @@
-from .schemas import mechanic_schema, mechanics_schema
+from .schemas import mechanic_schema, mechanics_schema, login_schema
 from flask import request, jsonify
 from marshmallow import ValidationError
 from sqlalchemy import select
 from app.models import Mechanic, db
 from . import mechanics_bp
 from app.helpers import get_or_404
+from app.utils.util import authenticate_user, token_required
 
+
+@mechanics_bp.route('/login', methods=['POST'])
+def login():
+    return authenticate_user(Mechanic, login_schema, role='mechanic')
 #=======MECHANIC ROUTES========
 
 # CREATE MECHANIC (POST /mechanics Endpoint)
@@ -49,7 +54,8 @@ def get_mechanic(mechanic_id):
 
 # UPDATE SPECIFIC MECHANIC (PUT /mechanics/<id> Endpoint)
 @mechanics_bp.route('/<int:mechanic_id>', methods=['PUT'])
-def update_mechanic(mechanic_id):
+@token_required
+def update_mechanic(mechanic_id, user_id, role):
     mechanic, error = get_or_404(Mechanic, mechanic_id)
     if error:
         return error
@@ -67,7 +73,11 @@ def update_mechanic(mechanic_id):
 
 # DELETE SPECIFIC MECHANIC (DELETE /mechanics/<id> Endpoint)
 @mechanics_bp.route('/<int:mechanic_id>', methods=['DELETE'])
-def delete_mechanic(mechanic_id):
+@token_required
+def delete_mechanic(mechanic_id, user_id, role):
+    # Restrict action to mechanics modifying their own profile
+    if role == 'mechanic' and user_id != mechanic_id:
+        return jsonify({'message': 'Unauthorized to delete another mechanic profile.'}), 403
     mechanic, error = get_or_404(Mechanic, mechanic_id)
     if error:
         return error
