@@ -2,11 +2,13 @@ from .schemas import customer_schema, customers_schema, login_schema
 from flask import request, jsonify
 from marshmallow import ValidationError
 from sqlalchemy import select
-from app.models import Customer, db
+from app.models import Customer, db, Service_Ticket
 from . import customers_bp
 from app.extensions import limiter, cache
 from app.helpers import get_or_404
 from app.utils.util import authenticate_user, token_required
+from app.blueprints.service_tickets.schemas import service_tickets_schema
+
 
 @customers_bp.route('/login', methods=['POST'])
 def login():
@@ -41,6 +43,20 @@ def get_customers():
     customers = db.session.execute(query).scalars().all()
     
     return customers_schema.jsonify(customers)
+
+# RETREIVE LOGGED-IN CUSTOMER'S SERVICE TICKETS (GET /customers/my-tickets)
+@customers_bp.route('/my-tickets', methods=['GET'])
+@token_required
+def get_my_tickets(user_id, role):
+    # Enforce that only customers (not mechanics) access their customer ticket history
+    if role != 'customer':
+        return jsonify({'message': 'Only customers can access thier personal tickets via this route.'}), 403
+    
+    query = select(Service_Ticket).where(Service_Ticket.customer_id == user_id)
+    tickets = db.session.execute(query).scalars().all()
+    
+    return service_tickets_schema.jsonify(tickets), 200
+
 
 # RETRIEVE SPECIFIC CUSTOMER (GET / customers/<id> Endpoint)
 @customers_bp.route('/<int:customer_id>', methods=['GET'])
@@ -88,3 +104,4 @@ def delete_customer(customer_id, user_id, role):
     db.session.delete(customer)
     db.session.commit()
     return jsonify({'message': f'Customer id: {customer_id}, successfully deleted'}), 200
+
