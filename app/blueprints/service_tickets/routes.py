@@ -2,11 +2,11 @@ from .schemas import service_ticket_schema, service_tickets_schema
 from flask import request, jsonify
 from marshmallow import ValidationError
 from sqlalchemy import select
-from app.models import Service_Ticket, Mechanic, db
+from app.models import Service_Ticket, Mechanic, Inventory, db
 from . import service_tickets_bp
 from app.extensions import limiter
 from app.helpers import get_or_404
-
+from app.utils.util import token_required
 #=========SERVICE TICKET ROUTES=============
 
 # CREATE SERVICE TICKET (POST /service_tickets Endpoint)
@@ -29,6 +29,15 @@ def get_service_tickets():
     service_tickets = db.session.execute(query).scalars().all()
     
     return service_tickets_schema.jsonify(service_tickets), 200
+
+# RETRIEVE A SINGLE SERVICE TICKET (Public Read-Only)
+@service_tickets_bp.route('/<int:ticket_id>', methods=['GET'])
+def get_service_ticket(ticket_id):
+    ticket, error = get_or_404(Service_Ticket, ticket_id)
+    if error:
+        return error
+    
+    return service_ticket_schema.jsonify(ticket), 200
 
 # ASSIGN MECHANIC TO SPECIFIC SERVICE TICKET (PUT /service_tickets/<id>/assign-mechanic/<mechanic_id> Endpoint)
 @service_tickets_bp.route('/<int:service_ticket_id>/assign-mechanic/<int:mechanic_id>', methods=['PUT'])
@@ -94,4 +103,30 @@ def edit_ticket_mechanics(ticket_id):
                 ticket.mechanics.remove(mechanic)
                 
     db.session.commit()
+    return service_ticket_schema.jsonify(ticket), 200
+
+# ADD A PART TO A SERVICE TICKET (PUT or POST /service-tickets/<ticket_id>/add-part/<part_id>)
+@service_tickets_bp.route('/<int:ticket_id>/add-part/<int:part_id>', methods=['PUT'])
+@token_required
+def add_part_to_ticket(ticket_id, part_id, user_id, role):
+    # Ensure only logged-in mechanics can modify service tickets
+    if role != 'mechanic':
+        return jsonify({'message': 'Mechanic authorization required to modify service tickets.'}), 403
+
+    ticket, error = get_or_404(Service_Ticket, ticket_id)
+    if error:
+        return error
+
+    part, part_error = get_or_404(Inventory, part_id)
+    if part_error:
+        return part_error
+
+    # Check if part is already added to avoid duplicates
+    if part in ticket.parts:
+        return jsonify({'message': f'Part ID {part_id} is already added to this ticket.'}), 400
+
+    # Append to the many-to-many relationship list
+    ticket.parts.append(part)
+    db.session.commit()
+
     return service_ticket_schema.jsonify(ticket), 200

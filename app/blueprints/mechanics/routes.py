@@ -39,7 +39,7 @@ def get_mechanics():
     query = select(Mechanic)
     mechanics = db.session.execute(query).scalars().all()
     
-    return mechanics_schema.jsonify(mechanics)
+    return mechanics_schema.jsonify(mechanics), 200
 
 # POPULAR MECHANICS (GET /mechanics/top-performers)
 @mechanics_bp.route('/top-performers', methods=['GET'])
@@ -69,7 +69,7 @@ def get_mechanic(mechanic_id):
 @mechanics_bp.route('/<int:mechanic_id>', methods=['PUT'])
 @token_required
 def update_mechanic(mechanic_id, user_id, role):
-    if role == 'mechanic' and user_id != mechanic_id:
+    if role != 'mechanic' or user_id != mechanic_id:
         return jsonify({'message': 'Unauthorized to modify another mechanic profile'}), 403
     mechanic, error = get_or_404(Mechanic, mechanic_id)
     if error:
@@ -91,7 +91,7 @@ def update_mechanic(mechanic_id, user_id, role):
 @token_required
 def delete_mechanic(mechanic_id, user_id, role):
     # Restrict action to mechanics modifying their own profile
-    if role == 'mechanic' and user_id != mechanic_id:
+    if role != 'mechanic' or user_id != mechanic_id:
         return jsonify({'message': 'Unauthorized to delete another mechanic profile.'}), 403
     mechanic, error = get_or_404(Mechanic, mechanic_id)
     if error:
