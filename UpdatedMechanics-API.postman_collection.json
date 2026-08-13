@@ -1,0 +1,2803 @@
+{
+  "info": {
+    "_postman_id": "d92fb1fc-6a73-47d2-b492-31cec645c957",
+    "name": "Mechanics-API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "56771884",
+    "_collection_link": "https://go.postman.co/collection/56771884-d92fb1fc-6a73-47d2-b492-31cec645c957?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Customers",
+      "item": [
+        {
+          "name": "Customer Login with Authentication",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"email\": \"diana@example.com\",\r\n    \"password\": \"password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/customers/login",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["customers", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create New Customer",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Julia Peterson\",\r\n    \"email\": \"julia@example.com\",\r\n    \"phone\": \"555-0110\",\r\n    \"password\": \"password123\"\r\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/customers",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["customers"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Customers",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"bob.vance@mechanics.com\",\r\n    \"password\": \"abcd\",\r\n    \"name\": \"Bobby Vance\",\r\n    \"phone\": \"555-0201\",\r\n    \"salary\": 90000\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/customers",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["customers"]
+            }
+          },
+          "response": [
+            {
+              "name": "Get All Customers",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\": \"bob.vance@mechanics.com\",\r\n    \"password\": \"abcd\",\r\n    \"name\": \"Bobby Vance\",\r\n    \"phone\": \"555-0201\",\r\n    \"salary\": 90000\r\n}"
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/customers",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["customers"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 00:16:14 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1396"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"email\": \"alice@example.com\",\n        \"id\": 1,\n        \"name\": \"Alice Smith\",\n        \"password\": \"password123\",\n        \"phone\": \"555-0101\"\n    },\n    {\n        \"email\": \"bill@example.com\",\n        \"id\": 2,\n        \"name\": \"Bill Jones\",\n        \"password\": \"password123\",\n        \"phone\": \"555-0102\"\n    },\n    {\n        \"email\": \"charlie@example.com\",\n        \"id\": 3,\n        \"name\": \"Charlie Brown\",\n        \"password\": \"password123\",\n        \"phone\": \"555-0103\"\n    },\n    {\n        \"email\": \"dprice@example.com\",\n        \"id\": 4,\n        \"name\": \"Diana Price\",\n        \"password\": \"password123\",\n        \"phone\": \"555-0104\"\n    },\n    {\n        \"email\": \"evan@example.com\",\n        \"id\": 5,\n        \"name\": \"Evan Wright\",\n        \"password\": \"password123\",\n        \"phone\": \"555-0105\"\n    },\n    {\n        \"email\": \"fiona@example.com\",\n        \"id\": 6,\n        \"name\": \"Fiona Gallagher\",\n        \"password\": \"password123\",\n        \"phone\": \"555-0106\"\n    },\n    {\n        \"email\": \"george@example.com\",\n        \"id\": 7,\n        \"name\": \"George Clark\",\n        \"password\": \"password123\",\n        \"phone\": \"555-0107\"\n    },\n    {\n        \"email\": \"hannah@example.com\",\n        \"id\": 8,\n        \"name\": \"Hannah Abbott\",\n        \"password\": \"password123\",\n        \"phone\": \"555-0108\"\n    },\n    {\n        \"email\": \"ian@example.com\",\n        \"id\": 9,\n        \"name\": \"Ian Malcolm\",\n        \"password\": \"password123\",\n        \"phone\": \"555-0109\"\n    },\n    {\n        \"email\": \"julia@example.com\",\n        \"id\": 10,\n        \"name\": \"Julia Peterson\",\n        \"password\": \"password123\",\n        \"phone\": \"555-0110\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Get Customers Paginated (Page 2, 5 per page)",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"bob.vance@mechanics.com\",\r\n    \"password\": \"abcd\",\r\n    \"name\": \"Bobby Vance\",\r\n    \"phone\": \"555-0201\",\r\n    \"salary\": 90000\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/customers/?page=2&per_page=5",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["customers", ""],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "2"
+                },
+                {
+                  "key": "per_page",
+                  "value": "5"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Customers Paginated (Page 2, 5 per page)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\": \"bob.vance@mechanics.com\",\r\n    \"password\": \"abcd\",\r\n    \"name\": \"Bobby Vance\",\r\n    \"phone\": \"555-0201\",\r\n    \"salary\": 90000\r\n}"
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/customers/?page=2&per_page=5",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["customers", ""],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "2"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 00:17:25 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "704"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"email\": \"fiona@example.com\",\n        \"id\": 6,\n        \"name\": \"Fiona Gallagher\",\n        \"password\": \"password123\",\n        \"phone\": \"555-0106\"\n    },\n    {\n        \"email\": \"george@example.com\",\n        \"id\": 7,\n        \"name\": \"George Clark\",\n        \"password\": \"password123\",\n        \"phone\": \"555-0107\"\n    },\n    {\n        \"email\": \"hannah@example.com\",\n        \"id\": 8,\n        \"name\": \"Hannah Abbott\",\n        \"password\": \"password123\",\n        \"phone\": \"555-0108\"\n    },\n    {\n        \"email\": \"ian@example.com\",\n        \"id\": 9,\n        \"name\": \"Ian Malcolm\",\n        \"password\": \"password123\",\n        \"phone\": \"555-0109\"\n    },\n    {\n        \"email\": \"julia@example.com\",\n        \"id\": 10,\n        \"name\": \"Julia Peterson\",\n        \"password\": \"password123\",\n        \"phone\": \"555-0110\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Get Logged-In Customer Tickets (Must Login/ BAD REQUEST)",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"bob.vance@mechanics.com\",\r\n    \"password\": \"abcd\",\r\n    \"name\": \"Bobby Vance\",\r\n    \"phone\": \"555-0201\",\r\n    \"salary\": 90000\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/customers/my-tickets",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["customers", "my-tickets"]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Logged-In Customer Tickets (Must Login/ BAD REQUEST)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\": \"bob.vance@mechanics.com\",\r\n    \"password\": \"abcd\",\r\n    \"name\": \"Bobby Vance\",\r\n    \"phone\": \"555-0201\",\r\n    \"salary\": 90000\r\n}"
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/customers/my-tickets",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["customers", "my-tickets"]
+                }
+              },
+              "status": "UNAUTHORIZED",
+              "code": 401,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 00:18:41 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "62"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"You must be logged in to access this info.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Try My Tickets as Mechanic (Unauthorized with Mechanic Token)",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auth_secret_00dy}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Tommy Thompson\",\r\n    \"email\": \"tom.thompson@mechanics.com\",\r\n    \"phone\": \"555-0203\",\r\n    \"password\": \"mechpassword\",\r\n    \"salary\": 90000\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/customers/my-tickets",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["customers", "my-tickets"]
+            }
+          },
+          "response": [
+            {
+              "name": "Try My Tickets as Mechanic (Unauthorized with Mechanic Token)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Tommy Thompson\",\r\n    \"email\": \"tom.thompson@mechanics.com\",\r\n    \"phone\": \"555-0203\",\r\n    \"password\": \"mechpassword\",\r\n    \"salary\": 90000\r\n}"
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/customers/my-tickets",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["customers", "my-tickets"]
+                }
+              },
+              "status": "FORBIDDEN",
+              "code": 403,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 01:05:09 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "84"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Only customers can access their personal tickets via this route.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Specific Customer with ID",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auth_secret_00dy}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Tommy Thompson\",\r\n    \"email\": \"tom.thompson@mechanics.com\",\r\n    \"phone\": \"555-0203\",\r\n    \"password\": \"mechpassword\",\r\n    \"salary\": 90000\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/customers/7",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["customers", "7"]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Specific Customer with ID",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Tommy Thompson\",\r\n    \"email\": \"tom.thompson@mechanics.com\",\r\n    \"phone\": \"555-0203\",\r\n    \"password\": \"mechpassword\",\r\n    \"salary\": 90000\r\n}"
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/customers/7",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["customers", "7"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 01:07:32 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "125"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"email\": \"george@example.com\",\n    \"id\": 7,\n    \"name\": \"George Clark\",\n    \"password\": \"password123\",\n    \"phone\": \"555-0107\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Customer with Authentication",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auth_secret_0ktp}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Diana Price\",\r\n    \"email\": \"dprice@example.com\",\r\n    \"phone\": \"555-0104\",\r\n    \"password\": \"password123\"\r\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/customers/4",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["customers", "4"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Other Customer (Unauthorized Token)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{json_web_token_1drb}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Tommy Thompson\",\r\n    \"email\": \"tom.thompson@mechanics.com\",\r\n    \"phone\": \"555-0203\",\r\n    \"password\": \"mechpassword\",\r\n    \"salary\": 90000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/customers/7",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["customers", "7"]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Other Customer (Unauthorized Token)",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Tommy Thompson\",\r\n    \"email\": \"tom.thompson@mechanics.com\",\r\n    \"phone\": \"555-0203\",\r\n    \"password\": \"mechpassword\",\r\n    \"salary\": 90000\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/customers/7",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["customers", "7"]
+                }
+              },
+              "status": "FORBIDDEN",
+              "code": 403,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 01:09:53 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "59"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Unauthorized to modify another account.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Other Customer (Unauthorized Token)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{supabase_service_role_api_key_1drb}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Tommy Thompson\",\r\n    \"email\": \"tom.thompson@mechanics.com\",\r\n    \"phone\": \"555-0203\",\r\n    \"password\": \"mechpassword\",\r\n    \"salary\": 90000\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/customers/7",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["customers", "7"]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete Other Customer (Unauthorized Token)",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Tommy Thompson\",\r\n    \"email\": \"tom.thompson@mechanics.com\",\r\n    \"phone\": \"555-0203\",\r\n    \"password\": \"mechpassword\",\r\n    \"salary\": 90000\r\n}"
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/customers/7",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["customers", "7"]
+                }
+              },
+              "status": "FORBIDDEN",
+              "code": 403,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 01:10:59 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "59"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Unauthorized to delete another account.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Own Customer Account (Matching Token)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auth_secret_12p5}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Tommy Thompson\",\r\n    \"email\": \"tom.thompson@mechanics.com\",\r\n    \"phone\": \"555-0203\",\r\n    \"password\": \"mechpassword\",\r\n    \"salary\": 90000\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/customers/12",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["customers", "12"]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete Own Customer Account (Matching Token)",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Tommy Thompson\",\r\n    \"email\": \"tom.thompson@mechanics.com\",\r\n    \"phone\": \"555-0203\",\r\n    \"password\": \"mechpassword\",\r\n    \"salary\": 90000\r\n}"
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/customers/12",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["customers", "12"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 01:13:11 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "57"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Customer id: 12, successfully deleted\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mechanics",
+      "item": [
+        {
+          "name": "Mechanic Login with Authentication",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"sarah.c@mechanics.com\",\r\n    \"password\": \"mechpassword\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/mechanics/login",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["mechanics", "login"]
+            }
+          },
+          "response": [
+            {
+              "name": "Mechanic Login with Authentication",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\": \"sarah.c@mechanics.com\",\r\n    \"password\": \"mechpassword\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/mechanics/login",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["mechanics", "login"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 00:37:53 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "246"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Successfully logged in.\",\n    \"status\": \"success\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3ODY1ODUwNzMsImlhdCI6MTc4NjU4MTQ3Mywic3ViIjoiMiIsInJvbGUiOiJtZWNoYW5pYyJ9.MwVDsqau6LCgp7eoQENrN9EpPPwbbjcE8fRWvgL-7Yo\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create a New Mechanic",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"name\": \"Bob Vance\",\r\n    \"email\": \"bob.vance@mechanics.com\",\r\n    \"phone\": \"555-0201\",\r\n    \"password\": \"mechpassword\",\r\n    \"salary\": 90000\r\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/mechanics",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["mechanics"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Duplicate Mechanic (Existing Email/BAD REQUEST)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"bob.vance@mechanics.com\",\r\n    \"password\": \"abcd\",\r\n    \"name\": \"Bobby Vance\",\r\n    \"phone\": \"555-0201\",\r\n    \"salary\": 90000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/mechanics",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["mechanics"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Mechanics",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"bob.vance@mechanics.com\",\r\n    \"password\": \"abcd\",\r\n    \"name\": \"Bobby Vance\",\r\n    \"phone\": \"555-0201\",\r\n    \"salary\": 90000\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/mechanics",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["mechanics"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve Top Performing Mechanics",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"sarah.c@mechanics.com\",\r\n    \"password\": \"mechpassword\"\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/mechanics/top-performers",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["mechanics", "top-performers"]
+            }
+          },
+          "response": [
+            {
+              "name": "Retrieve Top Performing Mechanics",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\": \"sarah.c@mechanics.com\",\r\n    \"password\": \"mechpassword\"\r\n}"
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/mechanics/top-performers",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["mechanics", "top-performers"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 00:46:12 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "843"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"email\": \"tom.b@mechanics.com\",\n        \"id\": 3,\n        \"name\": \"Tom Thompson\",\n        \"password\": \"mechpassword\",\n        \"phone\": \"555-0203\",\n        \"salary\": \"90000.00\"\n    },\n    {\n        \"email\": \"david.r@mechanics.com\",\n        \"id\": 5,\n        \"name\": \"David Rose\",\n        \"password\": \"mechpassword\",\n        \"phone\": \"555-0205\",\n        \"salary\": \"90000.00\"\n    },\n    {\n        \"email\": \"bob.vance@mechanics.com\",\n        \"id\": 1,\n        \"name\": \"Bob Vance\",\n        \"password\": \"mechpassword\",\n        \"phone\": \"555-0201\",\n        \"salary\": \"90000.00\"\n    },\n    {\n        \"email\": \"sarah.c@mechanics.com\",\n        \"id\": 2,\n        \"name\": \"Sarah Connor\",\n        \"password\": \"mechpassword\",\n        \"phone\": \"555-0202\",\n        \"salary\": \"90000.00\"\n    },\n    {\n        \"email\": \"lisa.c@mechanics.com\",\n        \"id\": 4,\n        \"name\": \"Lisa Day\",\n        \"password\": \"mechpassword\",\n        \"phone\": \"555-0204\",\n        \"salary\": \"90000.00\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Get Specific Mechanic by ID",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"remove_ids\": [5, 4]\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/mechanics/",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["mechanics", ""]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Specific Mechanic by ID",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"remove_ids\": [5, 4]\r\n}"
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/mechanics/3",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["mechanics", "3"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 00:47:29 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "151"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"email\": \"tom.b@mechanics.com\",\n    \"id\": 3,\n    \"name\": \"Tom Thompson\",\n    \"password\": \"mechpassword\",\n    \"phone\": \"555-0203\",\n    \"salary\": \"90000.00\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Non-Existent Mechanic / Invalid ID",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"remove_ids\": [5, 4]\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/mechanics/7",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["mechanics", "7"]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Non-Existent Mechanic / Invalid ID",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"remove_ids\": [5, 4]\r\n}"
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/mechanics/7",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["mechanics", "7"]
+                }
+              },
+              "status": "NOT FOUND",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 00:48:22 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "36"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"error\": \"Mechanic not found\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Mechanic Profile (Self Edit with Authorization)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{supabase_service_role_api_key_14n2}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Elisa Day\",\r\n    \"email\": \"elisa_day@mechanics.com\",\r\n    \"phone\": \"555-0204\",\r\n    \"password\": \"mechpassword\",\r\n    \"salary\": 90000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/mechanics/4",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["mechanics", "4"]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Mechanic Profile (Self Edit with Authorization)",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Elisa Day\",\r\n    \"email\": \"elisa_day@mechanics.com\",\r\n    \"phone\": \"555-0204\",\r\n    \"password\": \"mechpassword\",\r\n    \"salary\": 90000\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/mechanics/4",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["mechanics", "4"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 00:52:54 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "152"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"email\": \"elisa_day@mechanics.com\",\n    \"id\": 4,\n    \"name\": \"Elisa Day\",\n    \"password\": \"mechpassword\",\n    \"phone\": \"555-0204\",\n    \"salary\": \"90000.00\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Other Mechanic Profile (Unauthorized)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{json_web_token_17ns}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Tommy Thompson\",\r\n    \"email\": \"tom.thompson@mechanics.com\",\r\n    \"phone\": \"555-0203\",\r\n    \"password\": \"mechpassword\",\r\n    \"salary\": 90000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/mechanics/5",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["mechanics", "5"]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Other Mechanic Profile (Unauthorized)",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Tommy Thompson\",\r\n    \"email\": \"tom.thompson@mechanics.com\",\r\n    \"phone\": \"555-0203\",\r\n    \"password\": \"mechpassword\",\r\n    \"salary\": 90000\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/mechanics/5",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["mechanics", "5"]
+                }
+              },
+              "status": "FORBIDDEN",
+              "code": 403,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 00:57:51 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "67"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Unauthorized to modify another mechanic profile\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Other Mechanic (Unauthorized Token)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{json_web_token_17ns}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Tommy Thompson\",\r\n    \"email\": \"tom.thompson@mechanics.com\",\r\n    \"phone\": \"555-0203\",\r\n    \"password\": \"mechpassword\",\r\n    \"salary\": 90000\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/mechanics/5",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["mechanics", "5"]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete Other Mechanic (Unauthorized Token)",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Tommy Thompson\",\r\n    \"email\": \"tom.thompson@mechanics.com\",\r\n    \"phone\": \"555-0203\",\r\n    \"password\": \"mechpassword\",\r\n    \"salary\": 90000\r\n}"
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/mechanics/5",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["mechanics", "5"]
+                }
+              },
+              "status": "FORBIDDEN",
+              "code": 403,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 00:59:53 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "68"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Unauthorized to delete another mechanic profile.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Own Mechanic Profile (Matching Token)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{supabase_service_role_api_key_1a8f}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Tommy Thompson\",\r\n    \"email\": \"tom.thompson@mechanics.com\",\r\n    \"phone\": \"555-0203\",\r\n    \"password\": \"mechpassword\",\r\n    \"salary\": 90000\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/mechanics/6",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["mechanics", "6"]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete Own Mechanic Profile (Matching Token)",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Tommy Thompson\",\r\n    \"email\": \"tom.thompson@mechanics.com\",\r\n    \"phone\": \"555-0203\",\r\n    \"password\": \"mechpassword\",\r\n    \"salary\": 90000\r\n}"
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/mechanics/6",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["mechanics", "6"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 01:02:52 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "56"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Mechanic id: 6, successfully deleted\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Service Tickets",
+      "item": [
+        {
+          "name": "Create Service Ticket",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"VIN\": \"1HGCR2F83HA012345\",\r\n    \"service_date\": \"2026-08-01\",\r\n    \"service_desc\": \"Oil change, tire rotation, and fluid level check.\",\r\n    \"customer_id\": 1\r\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/service-tickets",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["service-tickets"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Service Tickets",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"VIN\": \"1HGCR2F83HA012345\",\r\n    \"service_date\": \"2026-08-01\",\r\n    \"service_desc\": \"Oil change, tire rotation, and fluid level check.\",\r\n    \"customer_id\": 1\r\n  }"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/service-tickets",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["service-tickets"]
+            }
+          },
+          "response": [
+            {
+              "name": "Get All Service Tickets",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"VIN\": \"1HGCR2F83HA012345\",\r\n    \"service_date\": \"2026-08-01\",\r\n    \"service_desc\": \"Oil change, tire rotation, and fluid level check.\",\r\n    \"customer_id\": 1\r\n  }"
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/service-tickets",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["service-tickets"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 00:14:36 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "2820"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"VIN\": \"1HGCR2F83HA012345\",\n        \"customer_id\": 1,\n        \"id\": 1,\n        \"service_date\": \"2026-08-01\",\n        \"service_desc\": \"Oil change, tire rotation, and fluid level check.\"\n    },\n    {\n        \"VIN\": \"4T1B11HK8JU543210\",\n        \"customer_id\": 2,\n        \"id\": 2,\n        \"service_date\": \"2026-08-02\",\n        \"service_desc\": \"Brake pad replacement and rotor resurfacing for front wheels.\"\n    },\n    {\n        \"VIN\": \"1FTFW1ED4MFC98765\",\n        \"customer_id\": 3,\n        \"id\": 3,\n        \"service_date\": \"2026-08-03\",\n        \"service_desc\": \"Engine diagnostic check for check engine light code P0300.\"\n    },\n    {\n        \"VIN\": \"WA1CNAFE1L2011223\",\n        \"customer_id\": 4,\n        \"id\": 4,\n        \"service_date\": \"2026-08-04\",\n        \"service_desc\": \"AC system recharge and cabin air filter replacement.\"\n    },\n    {\n        \"VIN\": \"3VW167AJ4KM334455\",\n        \"customer_id\": 5,\n        \"id\": 5,\n        \"service_date\": \"2026-08-05\",\n        \"service_desc\": \"Transmission fluid flush and new filter installation.\"\n    },\n    {\n        \"VIN\": \"5NPE34AF8HH667788\",\n        \"customer_id\": 6,\n        \"id\": 6,\n        \"service_date\": \"2026-08-06\",\n        \"service_desc\": \"Wheel alignment and high-speed balance on all four tires.\"\n    },\n    {\n        \"VIN\": \"JN8AS5MT4DW998877\",\n        \"customer_id\": 7,\n        \"id\": 7,\n        \"service_date\": \"2026-08-07\",\n        \"service_desc\": \"12V Battery testing and replacement with terminal cleaning.\"\n    },\n    {\n        \"VIN\": \"KNDP13A28G7112233\",\n        \"customer_id\": 8,\n        \"id\": 8,\n        \"service_date\": \"2026-08-08\",\n        \"service_desc\": \"Serpentine belt replacement and tensioner adjustment.\"\n    },\n    {\n        \"VIN\": \"2C3CDZFJ9KH445566\",\n        \"customer_id\": 9,\n        \"id\": 9,\n        \"service_date\": \"2026-08-09\",\n        \"service_desc\": \"Spark plug replacement and intake manifold cleaning.\"\n    },\n    {\n        \"VIN\": \"1G1BE5SM3H7778899\",\n        \"customer_id\": 10,\n        \"id\": 10,\n        \"service_date\": \"2026-08-10\",\n        \"service_desc\": \"Coolant system flush and radiator hose inspection.\"\n    },\n    {\n        \"VIN\": \"1HGCR2F83HA012345\",\n        \"customer_id\": 1,\n        \"id\": 11,\n        \"service_date\": \"2026-08-10\",\n        \"service_desc\": \"Exhaust muffler leak repair and mounting bracket replacement.\"\n    },\n    {\n        \"VIN\": \"4T1B11HK8JU543210\",\n        \"customer_id\": 2,\n        \"id\": 12,\n        \"service_date\": \"2026-08-11\",\n        \"service_desc\": \"Front left strut assembly and sway bar link replacement.\"\n    },\n    {\n        \"VIN\": \"1FTFW1ED4MFC98765\",\n        \"customer_id\": 3,\n        \"id\": 13,\n        \"service_date\": \"2026-08-11\",\n        \"service_desc\": \"Power steering fluid exchange and pump seal check.\"\n    },\n    {\n        \"VIN\": \"WA1CNAFE1L2011223\",\n        \"customer_id\": 4,\n        \"id\": 14,\n        \"service_date\": \"2026-08-12\",\n        \"service_desc\": \"Fuel injector flush and throttle body service.\"\n    },\n    {\n        \"VIN\": \"3VW167AJ4KM334455\",\n        \"customer_id\": 5,\n        \"id\": 15,\n        \"service_date\": \"2026-08-12\",\n        \"service_desc\": \"Annual safety inspection and windshield wiper replacement.\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Assign Mechanic to Service Ticket",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:5000/service-tickets/7/assign-mechanic/2",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["service-tickets", "7", "assign-mechanic", "2"]
+            }
+          },
+          "response": [
+            {
+              "name": "Assign Mechanic to Service Ticket",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:5000/service-tickets/7/assign-mechanic/2",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["service-tickets", "7", "assign-mechanic", "2"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 00:21:59 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "78"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Mechanic id 2 successfully assigned to Service Ticket id 7\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Re-assign Same Mechanic to Ticket (BAD REQUEST)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/service-tickets/2/assign-mechanic/5",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["service-tickets", "2", "assign-mechanic", "5"]
+            }
+          },
+          "response": [
+            {
+              "name": "Re-assign Same Mechanic to Ticket (BAD REQUEST)",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/service-tickets/2/assign-mechanic/5",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["service-tickets", "2", "assign-mechanic", "5"]
+                }
+              },
+              "status": "BAD REQUEST",
+              "code": 400,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 00:24:43 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "68"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Mechanic id 5 is already assigned to this ticket\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Remove Mechanic from Service Ticket",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/service-tickets/2/remove-mechanic/5",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["service-tickets", "2", "remove-mechanic", "5"]
+            }
+          },
+          "response": [
+            {
+              "name": "Remove Mechanic from Service Ticket",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/service-tickets/2/remove-mechanic/5",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["service-tickets", "2", "remove-mechanic", "5"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 00:26:00 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "77"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Mechanic id: 5 successfully removed from Service Ticket 2\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Batch Add Mechanics to Ticket ",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"add_ids\": [1, 4]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/service-tickets/2/edit",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["service-tickets", "2", "edit"]
+            }
+          },
+          "response": [
+            {
+              "name": "Batch Add Mechanics to Ticket",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"add_ids\": [1, 4]\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/service-tickets/2/edit",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["service-tickets", "2", "edit"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 00:31:19 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "179"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"VIN\": \"4T1B11HK8JU543210\",\n    \"customer_id\": 2,\n    \"id\": 2,\n    \"service_date\": \"2026-08-02\",\n    \"service_desc\": \"Brake pad replacement and rotor resurfacing for front wheels.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Batch Remove Mechanics from Ticket",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"remove_ids\": [5, 4]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/service-tickets/2/edit",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["service-tickets", "2", "edit"]
+            }
+          },
+          "response": [
+            {
+              "name": "Batch Remove Mechanics from Ticket",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"remove_ids\": [5, 4]\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/service-tickets/2/edit",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["service-tickets", "2", "edit"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 00:32:58 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "179"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"VIN\": \"4T1B11HK8JU543210\",\n    \"customer_id\": 2,\n    \"id\": 2,\n    \"service_date\": \"2026-08-02\",\n    \"service_desc\": \"Brake pad replacement and rotor resurfacing for front wheels.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Retrieve a Specific Service Ticket by ID",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:5000/service-tickets/3",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["service-tickets", "3"]
+            }
+          },
+          "response": [
+            {
+              "name": "Retrieve a Specific Service Ticket by ID",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:5000/service-tickets/3",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["service-tickets", "3"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 15:51:17 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "342"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"VIN\": \"1FTFW1ED4MFC98765\",\n    \"customer_id\": 3,\n    \"id\": 3,\n    \"mechanics\": [\n        {\n            \"id\": 1,\n            \"name\": \"Bob Vance\"\n        }\n    ],\n    \"parts\": [\n        {\n            \"id\": 2,\n            \"name\": \"Coolant\",\n            \"price\": 45.99\n        }\n    ],\n    \"service_date\": \"2026-08-03\",\n    \"service_desc\": \"Engine diagnostic check for check engine light code P0300.\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Inventory",
+      "item": [
+        {
+          "name": "Create an Inventory Item",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Brake fluid\",\r\n    \"price\": 35.99\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/inventory",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["inventory"]
+            }
+          },
+          "response": [
+            {
+              "name": "Create an Inventory Item",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Brake fluid\",\r\n    \"price\": 35.99\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/inventory",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["inventory"]
+                }
+              },
+              "status": "CREATED",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 13:31:15 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "57"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 1,\n    \"name\": \"Brake fluid\",\n    \"price\": 35.99\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create an Inventory Item Duplicate Name (BAD REQUEST)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Brake fluid\",\r\n    \"price\": 40.99\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/inventory",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["inventory"]
+            }
+          },
+          "response": [
+            {
+              "name": "Create an Inventory Item Duplicate Name (BAD REQUEST)",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Brake fluid\",\r\n    \"price\": 40.99\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/inventory",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["inventory"]
+                }
+              },
+              "status": "BAD REQUEST",
+              "code": 400,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 13:38:42 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "55"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"error\": \"Inventory item name already in system\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Retrieve All Inventory Items",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Brake fluid\",\r\n    \"price\": 40.99\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/inventory",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["inventory"]
+            }
+          },
+          "response": [
+            {
+              "name": "Retrieve All Inventory Items",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Brake fluid\",\r\n    \"price\": 40.99\r\n}"
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/inventory",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["inventory"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 13:45:19 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "337"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Brake fluid\",\n        \"price\": 35.99\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Coolant\",\n        \"price\": 45.99\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Spark Plug\",\n        \"price\": 25.99\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Anti-Freeze\",\n        \"price\": 39.99\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Air Filter\",\n        \"price\": 59.99\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Get Specific Item by ID",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Brake fluid\",\r\n    \"price\": 40.99\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/inventory/2",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["inventory", "2"]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Specific Item by ID",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Brake fluid\",\r\n    \"price\": 40.99\r\n}"
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/inventory/2",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["inventory", "2"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 13:53:19 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "53"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 2,\n    \"name\": \"Coolant\",\n    \"price\": 45.99\n}"
+            }
+          ]
+        },
+        {
+          "name": "Retrieve Inventory Item by ID (Item Not Found)",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Brake fluid\",\r\n    \"price\": 40.99\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/inventory/25",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["inventory", "25"]
+            }
+          },
+          "response": [
+            {
+              "name": "Retrieve Inventory Item by ID (Item Not Found)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Brake fluid\",\r\n    \"price\": 40.99\r\n}"
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/inventory/25",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["inventory", "25"]
+                }
+              },
+              "status": "NOT FOUND",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 13:55:10 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "37"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"error\": \"Inventory not found\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update an Inventory Item Unauthorized User (FORBIDDEN)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auth_secret_1e50}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Air Filter Ultra\",\r\n    \"price\": 60.99\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/inventory/5",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["inventory", "5"]
+            }
+          },
+          "response": [
+            {
+              "name": "Update an Inventory Item Unauthorized User (FORBIDDEN)",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Air Filter Ultra\",\r\n    \"price\": 60.99\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/inventory/5",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["inventory", "5"]
+                }
+              },
+              "status": "FORBIDDEN",
+              "code": 403,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 14:08:45 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "72"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Mechanic authorization required to update inventory.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Specific Inventory Item by ID with Authorization",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{supabase_service_role_api_key_01ug}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Air Filter Ultra\",\r\n    \"price\": 60.99\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/inventory/5",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["inventory", "5"]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Specific Inventory Item by ID with Authorization",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Air Filter Ultra\",\r\n    \"price\": 60.99\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/inventory/5",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["inventory", "5"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 14:10:23 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "62"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 5,\n    \"name\": \"Air Filter Ultra\",\n    \"price\": 60.99\n}"
+            }
+          ]
+        },
+        {
+          "name": "Add Inventory Item to Service Ticket by ID",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auth_secret_148m}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Anti-Freeze\",\r\n    \"price\": 39.99\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/service-tickets/3/add-part/4",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["service-tickets", "3", "add-part", "4"]
+            }
+          },
+          "response": [
+            {
+              "name": "Add Inventory Item to Service Ticket by ID",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Anti-Freeze\",\r\n    \"price\": 39.99\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/service-tickets/3/add-part/4",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["service-tickets", "3", "add-part", "4"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 15:57:45 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "420"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"VIN\": \"1FTFW1ED4MFC98765\",\n    \"customer_id\": 3,\n    \"id\": 3,\n    \"mechanics\": [\n        {\n            \"id\": 1,\n            \"name\": \"Bob Vance\"\n        }\n    ],\n    \"parts\": [\n        {\n            \"id\": 2,\n            \"name\": \"Coolant\",\n            \"price\": 45.99\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Anti-Freeze\",\n            \"price\": 39.99\n        }\n    ],\n    \"service_date\": \"2026-08-03\",\n    \"service_desc\": \"Engine diagnostic check for check engine light code P0300.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Inventory Item Unauthorized User (FORBIDDEN)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{supabase_service_role_api_key_08gb}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Air Filter Ultra\",\r\n    \"price\": 60.99\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/inventory/1",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["inventory", "1"]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete Inventory Item Unauthorized User (FORBIDDEN)",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Air Filter Ultra\",\r\n    \"price\": 60.99\r\n}"
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/inventory/1",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["inventory", "1"]
+                }
+              },
+              "status": "FORBIDDEN",
+              "code": 403,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 14:20:32 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "78"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Mechanic authorization required to delete inventory items.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Inventory Item with Authorization",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{supabase_service_role_api_key_01ug}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Air Filter Ultra\",\r\n    \"price\": 60.99\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/inventory/1",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["inventory", "1"]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete Inventory Item with Authorization",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Air Filter Ultra\",\r\n    \"price\": 60.99\r\n}"
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/inventory/1",
+                  "protocol": "http",
+                  "host": ["127", "0", "0", "1"],
+                  "port": "5000",
+                  "path": ["inventory", "1"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.8 Python/3.14.4"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Aug 2026 14:22:00 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "57"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Inventory id: 1, successfully deleted\"\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "json_web_token_0mmi",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_0iv5",
+      "secret": true
+    },
+    {
+      "key": "auth_secret_0ktp",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_13d5",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_14n2",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_17ns",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_1a8f",
+      "secret": true
+    },
+    {
+      "key": "auth_secret_00dy",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_1drb",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_1drb",
+      "secret": true
+    },
+    {
+      "key": "auth_secret_12p5",
+      "secret": true
+    },
+    {
+      "key": "auth_secret_1e50",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_01ug",
+      "secret": true
+    },
+    {
+      "key": "auth_secret_01ug",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_08gb",
+      "secret": true
+    },
+    {
+      "key": "auth_secret_148m",
+      "secret": true
+    }
+  ]
+}
