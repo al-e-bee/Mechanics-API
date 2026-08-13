@@ -1,0 +1,92 @@
+[
+  {
+    "VIN": "1HGCR2F83HA012345",
+    "service_date": "2026-08-01",
+    "service_desc": "Oil change, tire rotation, and fluid level check.",
+    "customer_id": 1
+  },
+  {
+    "VIN": "4T1B11HK8JU543210",
+    "service_date": "2026-08-02",
+    "service_desc": "Brake pad replacement and rotor resurfacing for front wheels.",
+    "customer_id": 2
+  },
+  {
+    "VIN": "1FTFW1ED4MFC98765",
+    "service_date": "2026-08-03",
+    "service_desc": "Engine diagnostic check for check engine light code P0300.",
+    "customer_id": 3
+  },
+  {
+    "VIN": "WA1CNAFE1L2011223",
+    "service_date": "2026-08-04",
+    "service_desc": "AC system recharge and cabin air filter replacement.",
+    "customer_id": 4
+  },
+  {
+    "VIN": "3VW167AJ4KM334455",
+    "service_date": "2026-08-05",
+    "service_desc": "Transmission fluid flush and new filter installation.",
+    "customer_id": 5
+  },
+  {
+    "VIN": "5NPE34AF8HH667788",
+    "service_date": "2026-08-06",
+    "service_desc": "Wheel alignment and high-speed balance on all four tires.",
+    "customer_id": 6
+  },
+  {
+    "VIN": "JN8AS5MT4DW998877",
+    "service_date": "2026-08-07",
+    "service_desc": "12V Battery testing and replacement with terminal cleaning.",
+    "customer_id": 7
+  },
+  {
+    "VIN": "KNDP13A28G7112233",
+    "service_date": "2026-08-08",
+    "service_desc": "Serpentine belt replacement and tensioner adjustment.",
+    "customer_id": 8
+  },
+  {
+    "VIN": "2C3CDZFJ9KH445566",
+    "service_date": "2026-08-09",
+    "service_desc": "Spark plug replacement and intake manifold cleaning.",
+    "customer_id": 9
+  },
+  {
+    "VIN": "1G1BE5SM3H7778899",
+    "service_date": "2026-08-10",
+    "service_desc": "Coolant system flush and radiator hose inspection.",
+    "customer_id": 10
+  },
+  {
+    "VIN": "1HGCR2F83HA012345",
+    "service_date": "2026-08-10",
+    "service_desc": "Exhaust muffler leak repair and mounting bracket replacement.",
+    "customer_id": 1
+  },
+  {
+    "VIN": "4T1B11HK8JU543210",
+    "service_date": "2026-08-11",
+    "service_desc": "Front left strut assembly and sway bar link replacement.",
+    "customer_id": 2
+  },
+  {
+    "VIN": "1FTFW1ED4MFC98765",
+    "service_date": "2026-08-11",
+    "service_desc": "Power steering fluid exchange and pump seal check.",
+    "customer_id": 3
+  },
+  {
+    "VIN": "WA1CNAFE1L2011223",
+    "service_date": "2026-08-12",
+    "service_desc": "Fuel injector flush and throttle body service.",
+    "customer_id": 4
+  },
+  {
+    "VIN": "3VW167AJ4KM334455",
+    "service_date": "2026-08-12",
+    "service_desc": "Annual safety inspection and windshield wiper replacement.",
+    "customer_id": 5
+  }
+]

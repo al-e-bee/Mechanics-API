@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Alice Smith",
+    "email": "alice@example.com",
+    "phone": "555-0101",
+    "password": "password123"
+  },
+  {
+    "name": "Bill Jones",
+    "email": "bill@example.com",
+    "phone": "555-0102",
+    "password": "password123"
+  },
+  {
+    "name": "Charlie Brown",
+    "email": "charlie@example.com",
+    "phone": "555-0103",
+    "password": "password123"
+  },
+  {
+    "name": "Diana Prince",
+    "email": "diana@example.com",
+    "phone": "555-0104",
+    "password": "password123"
+  },
+  {
+    "name": "Evan Wright",
+    "email": "evan@example.com",
+    "phone": "555-0105",
+    "password": "password123"
+  },
+  {
+    "name": "Fiona Gallagher",
+    "email": "fiona@example.com",
+    "phone": "555-0106",
+    "password": "password123"
+  },
+  {
+    "name": "George Clark",
+    "email": "george@example.com",
+    "phone": "555-0107",
+    "password": "password123"
+  },
+  {
+    "name": "Hannah Abbott",
+    "email": "hannah@example.com",
+    "phone": "555-0108",
+    "password": "password123"
+  },
+  {
+    "name": "Ian Malcolm",
+    "email": "ian@example.com",
+    "phone": "555-0109",
+    "password": "password123"
+  },
+  {
+    "name": "Julia Peterson",
+    "email": "julia@example.com",
+    "phone": "555-0110",
+    "password": "password123"
+  }
+]

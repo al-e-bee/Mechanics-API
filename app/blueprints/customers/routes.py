@@ -18,7 +18,7 @@ def login():
 
 # CREATE CUSTOMER (POST / customers Endpoint)
 @customers_bp.route('/', methods=['POST'])
-@limiter.limit('5 per day') # Prevents bots or others from spamming the API and crashing it by creating a daily limit
+# @limiter.limit('5 per day') # Prevents bots or others from spamming the API and crashing it by creating a daily limit
 def create_customer():
     try:
         customer_data = customer_schema.load(request.json)
@@ -35,14 +35,22 @@ def create_customer():
     db.session.commit()
     return customer_schema.jsonify(new_customer), 201
 
-# RETRIEVE ALL CUSTOMERS (GET / customers Endpoint)
+# RETRIEVE ALL CUSTOMERS (WITH OPTIONAL PAGINATION)
 @customers_bp.route('/', methods=['GET'])
-@cache.cached(timeout=60) # Caching this endpoint is important because as the database grows with more customers added, it will become more expensive to gather that data frequently. Caching it allows the return of data to remain fast without exhausting the entire database frequently to retrieve all customers. 
+@cache.cached(timeout=60, query_string=True) # Optional: query_string=True ensures cache differentiates between different pages!
+# Caching this endpoint is important because as the database grows with more customers added, it will become more expensive to gather that data frequently. Caching it allows the return of data to remain fast without exhausting the entire database frequently to retrieve all customers.
 def get_customers():
-    query = select(Customer)
-    customers = db.session.execute(query).scalars().all()
+    # Set default fallback values (Page 1, 10 per page) if query params aren't provided
+    page = request.args.get('page', 1, type=int)
+    per_page = request.args.get('per_page', 10, type=int)
     
-    return customers_schema.jsonify(customers)
+    query = select(Customer)
+    
+    # db.paginate handles pagination safely
+    customers_pagination = db.paginate(query, page=page, per_page=per_page, error_out=False)
+    
+    # Access .items to get the actual list of Customer objects for Marshmallow
+    return customers_schema.jsonify(customers_pagination.items), 200
 
 # RETREIVE LOGGED-IN CUSTOMER'S SERVICE TICKETS (GET /customers/my-tickets)
 @customers_bp.route('/my-tickets', methods=['GET'])
@@ -50,7 +58,7 @@ def get_customers():
 def get_my_tickets(user_id, role):
     # Enforce that only customers (not mechanics) access their customer ticket history
     if role != 'customer':
-        return jsonify({'message': 'Only customers can access thier personal tickets via this route.'}), 403
+        return jsonify({'message': 'Only customers can access their personal tickets via this route.'}), 403
     
     query = select(Service_Ticket).where(Service_Ticket.customer_id == user_id)
     tickets = db.session.execute(query).scalars().all()

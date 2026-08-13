@@ -1,8 +1,8 @@
 from .schemas import mechanic_schema, mechanics_schema, login_schema
 from flask import request, jsonify
 from marshmallow import ValidationError
-from sqlalchemy import select
-from app.models import Mechanic, db
+from sqlalchemy import select, func
+from app.models import Mechanic, db, Service_Ticket
 from . import mechanics_bp
 from app.helpers import get_or_404
 from app.utils.util import authenticate_user, token_required
@@ -41,6 +41,19 @@ def get_mechanics():
     
     return mechanics_schema.jsonify(mechanics)
 
+# POPULAR MECHANICS (GET /mechanics/top-performers)
+@mechanics_bp.route('/top-performers', methods=['GET'])
+def get_top_mechanics():
+    # Outer join mechanic to their service tickets relationship, count tickets, and order descending
+    query = (
+        select(Mechanic)
+        .outerjoin(Mechanic.services)
+        .group_by(Mechanic.id)
+        .order_by(func.count(Service_Ticket.id).desc())
+    )
+    
+    top_mechanics = db.session.scalars(query).all()
+    return mechanics_schema.jsonify(top_mechanics), 200
 
 # RETRIEVE A SINGLE MECHANIC (GET /mechanics/<id> Endpoint)
 @mechanics_bp.route('/<int:mechanic_id>', methods=['GET'])
@@ -56,6 +69,8 @@ def get_mechanic(mechanic_id):
 @mechanics_bp.route('/<int:mechanic_id>', methods=['PUT'])
 @token_required
 def update_mechanic(mechanic_id, user_id, role):
+    if role == 'mechanic' and user_id != mechanic_id:
+        return jsonify({'message': 'Unauthorized to modify another mechanic profile'}), 403
     mechanic, error = get_or_404(Mechanic, mechanic_id)
     if error:
         return error
@@ -85,3 +100,4 @@ def delete_mechanic(mechanic_id, user_id, role):
     db.session.delete(mechanic)
     db.session.commit()
     return jsonify({'message': f'Mechanic id: {mechanic_id}, successfully deleted'}), 200
+
