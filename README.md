@@ -1,12 +1,26 @@
 # Mechanics API
 
-A Flask RESTful API built with SQLAlchemy, Marshmallow, and the Application Factory pattern for managing mechanics, customers, and service tickets.
+A Flask RESTful API built with SQLAlchemy, Marshmallow, and the Application Factory pattern for managing mechanics, customers, service tickets, and parts inventory.
 
 ## Features & Endpoints
 
 - **Customers:** Create, view, update, and delete customer records (`/customers`)
 - **Mechanics:** Create, view, update, and delete mechanic profiles (`/mechanics`)
-- **Service Tickets:** Manage vehicle service tickets and assign mechanics (`/service_tickets`)
+- **Service Tickets:** Manage vehicle service tickets, assign mechanics, and attach parts (`/service_tickets`)
+- **Inventory:** Create, view, update, and delete parts inventory (`/inventory`)
+
+### Inventory & Ticket Parts Endpoints
+
+```
+| Method | Endpoint | Description | Auth Required |
+| :--- | :--- | :--- | :--- |
+| `POST` | `/inventory/` | Create a new inventory item | No |
+| `GET` | `/inventory/` | Retrieve all inventory items | No |
+| `GET` | `/inventory/<id>` | Retrieve a specific item | No |
+| `PUT` | `/inventory/<id>` | Update an inventory item | Yes (Mechanic) |
+| `DELETE` | `/inventory/<id>` | Delete an inventory item | Yes (Mechanic) |
+| `PUT` | `/service-tickets/<ticket_id>/add-part/<part_id>` | Add inventory part to ticket | Yes (Mechanic) |
+```
 
 ## Setup & Installation
 
