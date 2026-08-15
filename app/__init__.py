@@ -39,7 +39,7 @@ def create_app(config_name):
     app.register_blueprint(inventory_bp, url_prefix='/inventory')
     
     # Register Swagger Blueprint
-    app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
+    app.register_blueprint(swaggerui_blueprint)
     
     return app
 
