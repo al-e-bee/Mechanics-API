@@ -107,7 +107,7 @@ python app.py
 
 Access the live interactive Swagger UI documentation directly in your browser:
 
-[http://127.0.0.1:5000/docs/](http://127.0.0.1:5000/docs/)
+[http://127.0.0.1:5000/api/docs/](http://127.0.0.1:5000/api/docs/)
 
 ---
 
