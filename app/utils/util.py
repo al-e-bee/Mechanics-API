@@ -11,7 +11,7 @@ from app.models import db
 
 load_dotenv()
 
-SECRET_KEY = os.getenv('SECRET_KEY', 'default-fallback-testing-key-32-chars-long')
+SECRET_KEY = os.getenv('SECRET_KEY') or "super secret secrets"
 
 # Login Function
 def authenticate_user(model, login_schema, role):
