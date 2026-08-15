@@ -31,7 +31,7 @@ def get_service_tickets():
     return service_tickets_schema.jsonify(service_tickets), 200
 
 # RETRIEVE A SINGLE SERVICE TICKET (Public Read-Only)
-@service_tickets_bp.route('/<int:ticket_id>', methods=['GET'])
+@service_tickets_bp.route('/<int:service_ticket_id>', methods=['GET'])
 def get_service_ticket(ticket_id):
     ticket, error = get_or_404(Service_Ticket, ticket_id)
     if error:
