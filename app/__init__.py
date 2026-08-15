@@ -30,13 +30,13 @@ def create_app(config_name):
     cache.init_app(app)
     
     # Register Blueprints
-    app.register_blueprint(customers_bp)
+    app.register_blueprint(customers_bp, url_prefix='/customers')
     
-    app.register_blueprint(mechanics_bp)
+    app.register_blueprint(mechanics_bp, url_prefix='/mechanics')
     
-    app.register_blueprint(service_tickets_bp)
+    app.register_blueprint(service_tickets_bp, url_prefix='/service-tickets')
     
-    app.register_blueprint(inventory_bp)
+    app.register_blueprint(inventory_bp, url_prefix='/inventory')
     
     # Register Swagger Blueprint
     app.register_blueprint(swaggerui_blueprint)
