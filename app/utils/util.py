@@ -1,7 +1,6 @@
 import os
 import jwt
 from datetime import datetime, timezone, timedelta
-from dotenv import load_dotenv
 from functools import wraps
 from flask import request, jsonify
 from marshmallow import ValidationError
@@ -9,9 +8,8 @@ from sqlalchemy import select
 from app.models import db
 
 
-load_dotenv()
 
-SECRET_KEY = os.getenv('SECRET_KEY') or "super secret secrets"
+SECRET_KEY = os.environ.get('SECRET_KEY') or "super secret secrets"
 
 # Login Function
 def authenticate_user(model, login_schema, role):
