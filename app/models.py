@@ -37,7 +37,7 @@ class Customer(Base):
     password: Mapped[str] = mapped_column(db.String(200), nullable=False)
     phone: Mapped[str] = mapped_column(db.String(50), nullable=False)
     
-    tickets: Mapped[List['Service_Ticket']] = relationship(back_populates='customer')
+    tickets: Mapped[List['Service_Ticket']] = relationship(back_populates='customer', cascade="all, delete-orphan")
     
 class Service_Ticket(Base):
     __tablename__='service_tickets'

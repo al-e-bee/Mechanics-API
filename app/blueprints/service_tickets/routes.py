@@ -32,8 +32,8 @@ def get_service_tickets():
 
 # RETRIEVE A SINGLE SERVICE TICKET (Public Read-Only)
 @service_tickets_bp.route('/<int:service_ticket_id>', methods=['GET'])
-def get_service_ticket(ticket_id):
-    ticket, error = get_or_404(Service_Ticket, ticket_id)
+def get_service_ticket(service_ticket_id):
+    ticket, error = get_or_404(Service_Ticket, service_ticket_id)
     if error:
         return error
     

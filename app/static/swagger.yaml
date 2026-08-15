@@ -460,7 +460,7 @@ paths:
       summary: "Retrieve a single service ticket by ID"
       description: "Returns full details for a specific service ticket using its unique ID (public read-only)."
       parameters:
-        - name: "ticket_id"
+        - name: "service_ticket_id"
           in: "path"
           description: "Unique ID of the service ticket to retrieve"
           required: true
