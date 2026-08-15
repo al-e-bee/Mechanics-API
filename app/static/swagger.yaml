@@ -934,6 +934,26 @@ definitions:
     items:
       $ref: "#/definitions/MechanicResponse"
 
+  UpdateMechanicPayload:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+        example: "Mike Wheeler"
+      email:
+        type: "string"
+        example: "mike.mechanic@garage.com"
+      password:
+        type: "string"
+        example: "newpassword123"
+      phone:
+        type: "string"
+        example: "555-890-1234"
+      salary:
+        type: "number"
+        format: "float"
+        example: 72000.00
+
   MechanicDeleteSuccessResponse:
     type: "object"
     properties:
