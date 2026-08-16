@@ -12,5 +12,3 @@ with app.app_context():
 def home():
     return redirect('/api/docs/')
     
-if __name__=='__main__':
-    app.run()
